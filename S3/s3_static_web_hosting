@@ -1,4 +1,4 @@
-1.Using Console:
+## 1.Using Console:
 Go to S3 → Create bucket
 
 Bucket name: your-unique-portfolio-name
@@ -9,10 +9,10 @@ Uncheck “Block all public access”
 
 Create bucket
 
-2.Upload the  object like image/pdf/ppt
+## 2.Upload the  object like image/pdf/ppt
 then upoad the index.html file
 
-3.Go to S3 → Your Bucket → Properties
+## 3.Go to S3 → Your Bucket → Properties
 
 Scroll to Static Website Hosting
 
@@ -24,7 +24,7 @@ Index document: index.html
 
 Save
 
-4 then going to the object ownership permission
+## 4 then going to the object ownership permission
 
 enable ACL
 
@@ -32,9 +32,9 @@ Object ownership
 
 then Save it
 
-5.then going to the object of our input index.html file 
+## 5.then going to the object of our input index.html file 
 then go to the ACL and check the right permissionon everyone public accesss
 and check "I undestand"
 saved it
 
-6.RUN the url endpoint
+## 6.RUN the url endpoint
