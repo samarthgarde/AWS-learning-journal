@@ -1,6 +1,7 @@
 📘 AWS Project Documentation: VPC Peering with Nginx EC2 Instances
-🎯 Objective
-To configure VPC Peering between two VPCs, launch EC2 instances with Nginx web servers, and verify communication using private IPs via the VPC Peering route.
+
+🎯 Objective:To configure VPC Peering between two VPCs, launch EC2 instances with Nginx web servers, and verify communication using private IPs via the VPC Peering route.
+
 ### Infrastructure Setup Overview
 ✅ Resources Created:
 | Resource               | Count | Description                               |
@@ -52,6 +53,7 @@ VPC-B Route Table:
 Add route: 10.0.0.0/16 → Peering Connection
 
 🚀 EC2 Instance Setup
+
 7️⃣ Launch EC2 Instances
 Instance-A
 AMI: Ubuntu or Amazon Linux
@@ -78,8 +80,9 @@ Instance-B
 Same configuration in VPC-B/Subnet-B
 
 8️⃣ Connect to EC2 and Test
-From Instance-A, use the private IP of Instance-B to test:
+# From Instance-A, use the private IP of Instance-B to test:
 curl http://<Instance-B-Private-IP>
-From Instance-B, test:
+# From Instance-B, test:
 curl http://<Instance-A-Private-IP>
+
 If both commands return the default Nginx page, the setup is working.
