@@ -22,7 +22,7 @@ To configure VPC Peering between two VPCs, launch EC2 instances with Nginx web s
 
 ---
 
-###1️⃣  Create Two VPCs
+### 1️⃣  Create Two VPCs
 
 + VPC-A CIDR: 10.0.0.0/16
 + VPC-B CIDR: 10.1.0.0/16
