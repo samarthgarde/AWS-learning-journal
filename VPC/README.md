@@ -99,14 +99,17 @@ Instance-B
 
 Same configuration in VPC-B/Subnet-B
 
-8️⃣ Connect to EC2 and Test
+### 8️⃣  Connect to EC2 and Test
 
 From Instance-A, use the private IP of Instance-B to test:
 
-curl http://<Instance-B-Private-IP>
+curl http://Instance-B-Private-IP
 
 From Instance-B, test:
 
-curl http://<Instance-A-Private-IP>
+curl http://Instance-A-Private-IP
 
 If both commands return the default Nginx page, the setup is working.
+
+###  Nginx Web Output
+ ![Nginx Web Output](images/Nginx_project.png)
