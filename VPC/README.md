@@ -24,9 +24,8 @@ To configure VPC Peering between two VPCs, launch EC2 instances with Nginx web s
 
 ### 1️⃣  Create Two VPCs
 
-VPC-A CIDR: 10.0.0.0/16
-
-VPC-B CIDR: 10.1.0.0/16
++ VPC-A CIDR: 10.0.0.0/16
++ VPC-B CIDR: 10.1.0.0/16
 
 ### 2️⃣  Create Subnets
 
@@ -115,4 +114,5 @@ curl http://Instance-A-Private-IP
 If both commands return the default Nginx page, the setup is working.
 
 ###  Nginx Web Output
- ![Nginx Web Output](images/Nginx_project.png)
+![Nginx Web Output in Browser](images/Nginx_project.png)
+![Nginx web output in terminal](images/nginx_terminal.png)
