@@ -85,15 +85,18 @@ Allow HTTP (port 80)
 
 Allow SSH (port 22)
 
-User Data Script: (Installs Nginx)
+## 🔧 Nginx Setup Script (Ubuntu/Debian)
 
+```bash
 #!/bin/bash
 
 sudo apt update -y
-
 sudo apt install nginx -y
-
 sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
+
+```
 
 Instance-B
 
