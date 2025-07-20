@@ -14,7 +14,7 @@ To configure VPC Peering between two VPCs, launch EC2 instances with Nginx web s
 | Route Tables           | 2     | One per VPC, associated with their subnet |
 | VPC Peering Connection | 1     | Between VPC-A and VPC-B                   |
 | EC2 Instances          | 2     | One in each VPC with Nginx installed      |
-| Security Groups        | 2     | Allow HTTP (port 80)                   
+| Security Groups        | 2     | Allow HTTP (port 80)               
 
 
 ## 🖼️ Architecture Diagram
@@ -22,7 +22,7 @@ To configure VPC Peering between two VPCs, launch EC2 instances with Nginx web s
 
 ---
 
-### 1️⃣  Create Two VPCs
+###1️⃣  Create Two VPCs
 
 + VPC-A CIDR: 10.0.0.0/16
 + VPC-B CIDR: 10.1.0.0/16
