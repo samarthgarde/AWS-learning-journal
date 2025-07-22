@@ -16,7 +16,7 @@
 cd C:\Users\Samarth\Downloads
 
 icacls "keypair.pem" /inheritance:r /grant:r "%USERNAME%:R
-"
+
 ssh -i "keypair.pem" ubuntu@<ip adress>
 
 DONE
