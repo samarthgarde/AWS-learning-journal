@@ -1,6 +1,6 @@
 ### Create an S3 bucket:
 
-![Create S3 Bucket Screenshot](S3/Images/Create S3 bucket.png)
+![Create S3 Bucket Screenshot](images/Create S3 bucket.png)
 
 + Go to S3 → Create bucket
 + Bucket name: your-unique-portfolio-name
