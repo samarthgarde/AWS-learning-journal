@@ -1,4 +1,4 @@
-## í´’ Whitelisting an IP Address
+# Whitelisting an IP Address
 
 To allow access only from your specific IP address (for SSH, HTTP, etc.):
 
@@ -11,7 +11,7 @@ To allow access only from your specific IP address (for SSH, HTTP, etc.):
    - **Port Range:** 22
    - **Source:** My IP (or Custom â†’ `YOUR.IP.ADDRESS/32`)
 
-í²¡ Use `/32` to allow **only that specific IP**.
+5. Use `/32` to allow **only that specific IP**.
 
 
 
