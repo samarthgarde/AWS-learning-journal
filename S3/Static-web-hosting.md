@@ -1,12 +1,12 @@
 ### Create an S3 bucket:
 
-![Insert Bucket Screenshot](S3/Images/create_web.png)
-
 + Go to S3 → Create bucket
 + Bucket name: your-unique-portfolio-name
 + Uncheck✅ “Block all public access”
 + Click Create bucket
 --
+
+![Screenshot](./images/create_web.png)
 
 ## 2.Upload the  object like image/pdf/ppt
 then upoad the index.html file
