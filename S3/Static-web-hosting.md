@@ -1,10 +1,12 @@
+#📝 Title: Deploy a Static Website on AWS S3 using Console
+
 ## 1.Create an S3 bucket:
 
 + Go to S3 → Create bucket
 + Bucket name: your-unique-portfolio-name
 + Uncheck ✅ “Block all public access”
 + Click Create bucket
-.
+
 ![Screenshot](./images/oop_beta.png)
 
 ## 2.Upload the  object like image/pdf/ppt
@@ -18,12 +20,12 @@ then upoad the index.html file
 + Enable it, and set:
 + Index document: index.html
 (Optional) Error document: error.html
-+ Save.
++ Save
 
 ![Screenshot](./images/jddk_5.png)
 
 
-## 4 then going to the object ownership permission
+## 4.Going to the object ownership permission
 
 + enable ACL
 + Object ownership
@@ -31,7 +33,7 @@ then upoad the index.html file
 
 ![Scrrenshot](./images/omg_ok.png)
 
-## 5.then going to the object of our input index.html file 
+## 5.Going to the object of our input index.html file 
 
 + then go to the ACL and check the right permissionon everyone public accesss and check "I undestand"
 + saved it
@@ -43,7 +45,7 @@ then upoad the index.html file
 
 ![screenshot](./images/oop_betas_1.png)
 
-## Paste in your browser to view your hosted website
+## 7.Paste in your browser to view your hosted website
 
 ![screenshot](./images/ossj_4.png)
 
