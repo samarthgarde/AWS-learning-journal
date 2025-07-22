@@ -1,6 +1,6 @@
 #  EC2 User Data Scripts & AMI Notes
 
-# Date: 12th July 2025
+#S# Date: 12th July 2025
 
 # What is EC2 User Data?
 
@@ -31,15 +31,13 @@ systemctl start nginx
 - User configuration
 
 # Create AMI from EC2
-Launch and configure an EC2 instance.
-Install all required software via SSH or User Data.
-Go to EC2 → Instances → Actions → Image → Create Image.
-
-Name your image and create it.
+- Launch and configure an EC2 instance.
+- Install all required software via SSH or User Data.
+- Go to EC2 → Instances → Actions → Image → Create Image.
+- Name your image and create it.
 
 # Launch EC2 from Your Custom AMI
-Use the AMI ID or select from My AMIs.
-
-Now any new EC2 from this AMI has all pre-installed configurations.
+- Use the AMI ID or select from My AMIs.
+- Now any new EC2 from this AMI has all pre-installed configurations.
 
 
