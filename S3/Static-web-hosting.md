@@ -3,7 +3,7 @@
 + Bucket name: your-unique-portfolio-name
 + Uncheck✅ “Block all public access”
 + Click Create bucket
-
+--
 
 ![Create S3 Bucket Screenshot](S3/Images/Create S3 bucket.png)
 
