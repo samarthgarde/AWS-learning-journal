@@ -1,4 +1,4 @@
-## Definition:
+# Definition:
 Bucket policies are JSON-based access control policies attached directly to S3 buckets.
 
 Use Case
