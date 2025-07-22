@@ -1,10 +1,11 @@
 ## 1.Create an S3 bucket:
-![Screenshot](./images/oop_beta.png)
 
 + Go to S3 → Create bucket
 + Bucket name: your-unique-portfolio-name
-+ Uncheck✅ “Block all public access”
-+ Click Create bucket.
++ Uncheck ✅ “Block all public access”
++ Click Create bucket
+.
+![Screenshot](./images/oop_beta.png)
 
 ## 2.Upload the  object like image/pdf/ppt
 
@@ -17,23 +18,33 @@ then upoad the index.html file
 + Enable it, and set:
 + Index document: index.html
 (Optional) Error document: error.html
-![Screenshot](./images/Screenshot (62).png)
-  + Save
-![Scrrenshot](/images/Screenshot (63).png)
++ Save.
+
+![Screenshot](./images/jddk_5.png)
+
 
 ## 4 then going to the object ownership permission
 
 + enable ACL
 + Object ownership
 + then Save it
-![Scrrenshot](/images/Screenshot (64).png)
+
+![Scrrenshot](./images/omg_ok.png)
 
 ## 5.then going to the object of our input index.html file 
+
 + then go to the ACL and check the right permissionon everyone public accesss and check "I undestand"
 + saved it
-![Scrrenshot](/images/Screenshot (65).png)
+
+![Scrrenshot](./images/oop_bet_3.png)
+
 
 ## 6.RUN the url endpoint
-![screenshot](images/screenshot (66).png)
+
+![screenshot](./images/oop_betas_1.png)
+
+## Paste in your browser to view your hosted website
+
+![screenshot](./images/ossj_4.png)
 
 ✅ You're Done!
