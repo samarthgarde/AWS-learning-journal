@@ -1,9 +1,7 @@
-## 1.Using Console:
-Go to S3 → Create bucket
-
-Bucket name: your-unique-portfolio-name
-
-Region: Select your region
+### Create an S3 bucket:
++ Go to S3 → Create bucket
++ Bucket name: your-unique-portfolio-name
++ Region: Select your region
 
 Uncheck “Block all public access”
 
