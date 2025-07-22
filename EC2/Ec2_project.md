@@ -1,4 +1,4 @@
-##è Launch EC2 Instance
+# Launch EC2 Instance
 
 1. Go to AWS Management Console ‚Üí EC2.
 2. Click **Launch Instance**.
@@ -14,7 +14,9 @@
 
 ## connectivity SSH Into EC2 Instance:
 cd C:\Users\Samarth\Downloads
-icacls "keypair.pem" /inheritance:r /grant:r "%USERNAME%:R"
+
+icacls "keypair.pem" /inheritance:r /grant:r "%USERNAME%:R
+"
 ssh -i "keypair.pem" ubuntu@<ip adress>
 
 DONE
