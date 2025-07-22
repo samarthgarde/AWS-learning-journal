@@ -1,4 +1,4 @@
-#📝 Title: Deploy a Static Website on AWS S3 using Console
+# 📝 Title: Deploy a Static Website on AWS S3 using Console
 
 ## 1.Create an S3 bucket:
 
