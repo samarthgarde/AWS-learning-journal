@@ -3,7 +3,7 @@ AWS RDS is a managed relational database service that simplifies the process of 
 
 # Supported Database Engines
 
-![Supported Engines][./images/rds.png]
+![Supported Engines](/images/rds.png)
 
 - MySQL: A widely-used open-source relational database management system.
 - PostgreSQL: An advanced open-source database known for its extensibility and compliance.
