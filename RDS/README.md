@@ -29,13 +29,14 @@ Next, you'll need to specify details such as DB instance size, storage capacity,
 ## Step 5: Configure Advanced Settings
 AWS RDS provides advanced configuration options, including network settings, backup retention periods, and maintenance preferences.
 
-# Step 6: Create Database
+## Step 6: Create Database
 
 ## Step 7: Wait for Database to be Available
 
 ## Step 8: Configure Security Group
 
 ## Step 9: Connect EC2 to RDS
+
 + Find RDS Endpoint: In the RDS dashboard, locate the endpoint of your RDS instance. This is the hostname you'll use to connect to the database.
 + Install Database Client: On your EC2 instance, install the database client for your chosen database engine. 
 
@@ -45,4 +46,7 @@ sudo apt-get install mysql-client
 ```
 + Connect to RDS: Use the database client to connect to your RDS instance. Replace <endpoint>, <username>, and <password> with your actual RDS endpoint, master username, and password.
 
-```mysql -h <endpoint> -u <username> -p```
+```
+mysql -h <endpoint> -u <username> -p
+
+```
