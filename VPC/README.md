@@ -1,109 +1,137 @@
-# 🛠️   AWS Project Documentation: VPC Peering with Nginx EC2 Instances
+# 🔐 Virtual Private Cloud - VPC
 
-## 🎯Objective:
+We need to understand the main concepts of the resources of VPC
 
-To configure VPC Peering between two VPCs, launch EC2 instances with Nginx web servers, and verify communication using private IPs via the VPC Peering route.
+- [VPC](#vpc)
+- [Subnets](#subnets)
+- [Internet Gateway](#internet-gateway)
+- [NAT Gateway](#nat-gateway)
+- [Network ACL (NACL)](#network-acl)
+- [Security Groups](#security-groups)
+- [VPC Flow Logs](#vpc-flow-logs)
+- [VPC Peering](#vpc-peering)
+- [VPC Endpoints](#vpc-endpoints)
+- [Site to Site VPN](#site-to-site-vpn) (vpn and goes to public internet)
+- [Summary](#summary)
 
-### Infrastructure Setup Overview
-✅ Resources Created:
-| Resource               | Count | Description                               |
-| ---------------------- | ----- | ----------------------------------------- |
-| VPC                    | 2     | VPC-A and VPC-B                           |
-| Subnets                | 2     | One subnet per VPC                        |
-| Internet Gateways      | 2     | One attached to each VPC                  |
-| Route Tables           | 2     | One per VPC, associated with their subnet |
-| VPC Peering Connection | 1     | Between VPC-A and VPC-B                   |
-| EC2 Instances          | 2     | One in each VPC with Nginx installed      |
-| Security Groups        | 2     | Allow HTTP (port 80)               
+## VPC
 
+VPC stands to Virtual Private Cloud and it is a private network to deploy your resources (regional resource). 
 
-## 🖼️ Architecture Diagram
-![VPC Peering Architecture](images/p2_vpc-peering.png)
+## Subnets
 
----
+Subnets are partition of our network and is associated to an Availability Zone
 
-### 1️⃣  Create Two VPCs
+- **Public Subnet**: Is a subnet accessible for the internet (we can put, for example, an EC2 Instance). It requires an internet gateway.
+- **Private Subnet**: Is a subnet not accessible for the internet (we can put, for example, a database). Our private subnet can have access to the internet by using the NAT Gateway.
 
-+ VPC-A CIDR: 10.0.0.0/16
-+ VPC-B CIDR: 10.1.0.0/16
+To define access to the internet and communication between subnets, we use route tables.
 
-### 2️⃣  Create Subnets
+## Internet Gateway
 
-+ Subnet-A: 10.0.1.0/24 (in VPC-A)
-+ Subnet-B: 10.1.1.0/24 (in VPC-B)
+Inside each subnet we can have EC2 instances, For this instances be accessible to the internet, we need to use the Internet Gateway. The internet gateway create a way to our Subnet connect to the internet.
 
-### 3️⃣  Create Internet Gateways
+The public subnet will have a route to the internet gateway that is communicating with the internet. As soon we have the internet gateway and a route to it, that makes the subnet a **public subnet**. It is defined at VPC Level.
 
-+ Create and attach an Internet Gateway to each VPC.
+## NAT Gateway
 
-### 4️⃣  Create and Modify Route Tables
-+ Create a route table for each VPC and associate it with the respective subnet.
-+ Initially, add a route to 0.0.0.0/0 pointing to the Internet Gateway for internet access.
+Works with the **Private Subnet**. By default private subnet does not have access to the internet and cannot be accessed through the internet as well. But if we need to access the internet (for updates to softwares, or something similar) we can use the NAT Gateway.
 
-### 5️⃣  Create VPC Peering Connection
+NAT Gateway is a AWS-Managed service to allow private subnet access the internet while remaining private.
 
-+ Go to VPC > Peering Connections
-+ Click Create Peering Connection
+The NAT Gateway need to be created inside the Public Subnet and we create a Route from our Private Subnet to this NAT Gateway and it will be able to get internet connectivity.
 
-+ Requester VPC: VPC-A
-+ Accepter VPC: VPC-B
+## Network ACL
 
-+ After creation, Accept the Peering Request
+When we are inside the Subnet we have a protection called Network ACL (NACL or Network Access Level).
 
-### 6️⃣  Update Route Tables for Peering
+- NACL is a firewall (Subnet Level) which controls traffic from and to subnet.
+- NACL can have ALLOW and DENY rules
+- NACL is stateless, this means, the return traffic must be explicitly allowed by rules.
+- A NACL contains a numbered list of rules and evaluates these rules in the increasing order while deciding whether to allow the traffic.
+- Automatically applies to all instances in the subnets that it's associated with
+- The rules include only IP Addresses
 
-+ VPC-A Route Table:
+## Security Groups
 
-+ Add route: 10.1.0.0/16 → Peering Connection
+Security Groups are Firewall specific firewall that controls traffic to and from an ENI (Elastic Network Interface) and/or EC2 Instances.
 
-+ VPC-B Route Table:
+- Can have only ALLOW rules
+- Operates at the instance level
+- Rules include IP Addresses and other security groups
+- Security Groups are Stateful, this means the Return traffic is automatically allowed, regardless of any rules.
+- Security Groups evaluate all rules before deciding whether to allow traffic.
+- Control of inbound network (from outside to inside the instance)
+- Control of outbound network (from instance to outside) - by default, all traffic outbound (from our instance to the rest of the world) is allowed.
 
-+ Add route: 10.0.0.0/16 → Peering Connection
+## NACL vs Security Groups
 
-### 🚀  EC2 Instance Setup
+The main differences are
 
-### 7️⃣  Launch EC2 Instances
+Security Group: Operates at instance level, support only allow rules, is stateful (return traffic is automatically allowed, regardless any rules)
 
-+ Instance-A
-+ AMI: Ubuntu or Amazon Linux
+NACL: Operates at the subnet level, allow and deny rules, is stateless (return traffic must be explicitly allowed by the rules)
 
-+ VPC: VPC-A
-+ Subnet: Subnet-A
+for more details [visit amazon page](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html)
 
-+ Auto-assign Public IP: Enabled
+## VPC Flow Logs
 
-+ Security Group:
+VPC Flow logs captures all logs from all network interfaces, so we have:
 
-+ Allow HTTP (port 80)
+- VPC Flow logs
+- Subnet Flow logs
+- Elastic Network Interface Flow logs
+- It also captures network information from AWS managed interfaces into the services: Load Balancers, ElastiCache, RDS, Aurora, etc.
 
-+ Allow SSH (port 22)
+With this logs we can monitor and troubleshoot connectivity issues such as: Subnet to the internet, subnet to subnet, internet to subnet.
 
-## 🔧 Nginx Setup Script (Ubuntu/Debian)
+We can export our logs to S3 Bucket and/or CloudWatch Logs as well.
 
-```bash
-#!/bin/bash
+## VPC Peering
 
-sudo apt update -y
-sudo apt install nginx -y
-sudo systemctl start nginx
-sudo systemctl enable nginx
-sudo systemctl status nginx
+With VPC Peering we can connect two VPCs, privately using AWS Network and make them behave as if they are in the same network.
 
-```
+> A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them privately. Instances in either VPC can communicate with each other as if they are within the same network. You can create a VPC peering connection between your VPCs, with a VPC in another AWS account, or with a VPC in a different AWS Region.
 
-+ Instance-B
+- This must not overlap CIDR (IP ranges)
+- VPC peering is not transitive, this means if we have 3 VPCs, A, B and C, Then we create a VPC peering from A to B, And we create another VPC peering from B to C.
 
-Same configuration in VPC-B/Subnet-B
+## VPC Endpoints
 
-### 8️⃣  Connect to EC2 and Test
-```
-From Instance-A, use the private IP of Instance-B to test:
-curl http://Instance-B-Private-IP
-From Instance-B, test:
-curl http://Instance-A-Private-IP
-If both commands return the default Nginx page, the setup is working.
+Usually when we connect our services we use the public internet, but we have private subnets, there is no reason to make them communicate between the public internet. For example, an EC2 instance inside a private subnet needs to communicate with S3 or Dynamo. We can use the internal AWS network. For this we need to create an VPC Endpoint.
 
-```
-###  Nginx Web Output
-![Nginx Web Output in Browser](images/Nginx_project.png)
-![Nginx web output in terminal](images/nginx_terminal.png)
+VPC Endpoints allows us to connect to AWS services using a private network instead of the public. We have two types of Endpoints. This gives you enhanced security and lower latency to access AWS services.
+
+> VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+
+**VPC Endpoint Gateway**: Dynamo and S3
+
+- A gateway endpoint is a gateway that you specify as a target for a route in your route table for traffic destined to a supported AWS service.
+  **VPC Endpoint Interface**: All others AWS services
+- An interface endpoint is an elastic network interface with a private IP address from the IP address range of your subnet that serves as an entry point for traffic destined to a supported service. Interface endpoints are powered by AWS PrivateLink, a technology that enables you to privately access services by using private IP addresses.
+
+## Site to Site VPN
+
+> AWS Site-to-Site VPN creates a secure connection between your data center or branch office and your AWS cloud resources. This connection goes over the public internet. Site to Site VPN cannot be used to interconnect VPCs.
+
+## Summary
+
+- VPC Structure:
+  - VPC: Virtual Private Cloud
+  - Subnets: It is tied to an AZ, is a partition of VPC (can be private or public)
+- VPC Connectivity:
+  - Internet Gateway: at VPC level, allow internet access
+  - NAT Gateway: at the public subnet level, to allow access to the internet for the private one.
+- VPC Security:
+  - Network ACL (NACL): At subnet level, it is a firewall, Stateless, subnet rules for inbound and outbound
+  - Security Groups: at instance level, it is a firewall, stateful. subnet rules (only allow rules) for inbound and outbound
+  - VPC Flow Logs: Enable logs to all network interfaces of all internet traffic.
+- Connect multiple VPCs:
+  - VPC Peering: Connect two VPC with non overlapping IP ranges, intransitive
+  - VPC Endpoints: For private subnets, Provide private access to AWS Services within VPC (Interface and Gateway [S3 and Dynamo])
+- (VPN) Connect VPC with On Premise
+  - Site to Site VPN: connect on premises server with our vpc, through VPN using the public internet.
+  - Direct Connect: connect on premises server with our vpc, though VPN, using a private connection (needs physical devices)
+  - Transit Gateway: Connect thousands of VPCs and on premise servers using a central hub to manage traffic and peering.
+
+[UP](#-virtual-private-cloud---vpc)
