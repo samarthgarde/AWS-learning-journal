@@ -133,5 +133,3 @@ VPC Endpoints allows us to connect to AWS services using a private network inste
   - Site to Site VPN: connect on premises server with our vpc, through VPN using the public internet.
   - Direct Connect: connect on premises server with our vpc, though VPN, using a private connection (needs physical devices)
   - Transit Gateway: Connect thousands of VPCs and on premise servers using a central hub to manage traffic and peering.
-
-[UP](#-virtual-private-cloud---vpc)
