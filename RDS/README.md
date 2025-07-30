@@ -1,4 +1,4 @@
-# Introduction to AWS RDS
+# Relational Databases
 AWS RDS is a managed relational database service that simplifies the process of setting up, operating, and scaling a relational database in the cloud.
 **important**- We cannot use SSH into our database instances.
 
@@ -65,7 +65,6 @@ sudo apt-get install mysql-client
 mysql -h <endpoint> -u <username> -p
 
 ```
-
 
 # Summary
 
