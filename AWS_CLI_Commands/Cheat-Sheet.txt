@@ -1,0 +1,74 @@
+1️⃣ Setup AWS CLI
+# Check CLI version
+aws --version
+
+# Configure CLI with access keys
+aws configure
+
+# Verify identity
+aws sts get-caller-identity
+
+2️⃣ S3 (Storage)
+# Create a bucket (replace with unique bucket name)
+aws s3 mb s3://my-cli-bucket-123
+
+# List buckets
+aws s3 ls
+
+# Upload a file
+aws s3 cp test.txt s3://my-cli-bucket-123/
+
+# Sync a folder
+aws s3 sync ./local-folder s3://my-cli-bucket-123/
+
+# Download file
+aws s3 cp s3://my-cli-bucket-123/test.txt ./downloaded.txt
+
+# Delete file
+aws s3 rm s3://my-cli-bucket-123/test.txt
+
+# Remove bucket
+aws s3 rb s3://my-cli-bucket-123 --force
+
+3️⃣ EC2 (Compute)
+# List available regions
+aws ec2 describe-regions --output table
+
+# List AMIs (Amazon Linux 2)
+aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hvm-*" --query "Images[0].ImageId"
+
+# Launch instance
+aws ec2 run-instances --image-id ami-12345 --count 1 --instance-type t2.micro --key-name my-key --security-groups my-sg
+
+# List instances
+aws ec2 describe-instances --output table
+
+# Start instance
+aws ec2 start-instances --instance-ids i-1234567890abcdef0
+
+# Stop instance
+aws ec2 stop-instances --instance-ids i-1234567890abcdef0
+
+# Terminate instance
+aws ec2 terminate-instances --instance-ids i-1234567890abcdef0
+
+4️⃣ IAM (Identity & Access)
+# List users
+aws iam list-users
+
+# Create user
+aws iam create-user --user-name cli-user
+
+# Attach policy to user
+aws iam attach-user-policy --user-name cli-user --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+
+# Create access key for user
+aws iam create-access-key --user-name cli-user
+
+# Delete access key
+aws iam delete-access-key --user-name cli-user --access-key-id AKIA...
+
+# Delete user
+aws iam delete-user --user-name cli-user
+
+
