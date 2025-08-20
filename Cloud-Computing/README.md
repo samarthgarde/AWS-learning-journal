@@ -42,6 +42,7 @@
 - Closed/Not open for the public
 - To provide services/infra to a specific organization
 - Known Provider: Rackspace
+- examples: VMware vSphere / vCloud, OpenStack
 
 **Public**
 
@@ -53,6 +54,8 @@
 
 - Keep some servers on premises and extend some capabilities to the Cloud
 - Can keep sensitive data on the On Premise server (locally) and the others services on cloud.
+- examples: Banking Industry
+- Healthcare Industry
 
 ## Types of Services on Cloud Computing
 
