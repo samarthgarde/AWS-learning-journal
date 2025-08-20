@@ -63,22 +63,25 @@
 
 **Infrastructure as a Service (IaaS)**
 
-- Provide building tools for cloud IT accessible from network
+- Provide virtualized computing resources over the internet.
 - Provides network, computers, data storage and processing quickly
 - Flexibility
 - Can easily be parallelized with on-premises
+- exmaple-EC2, Azure VM, Google Compute Engine
 
 **Platform as a Service (PaaS)**
 
-- Environment to develop and deploy apps
-- Focus on Deployment and App management
-- Remove the needs of infra management
+- PaaS is a cloud service model that provides a ready-to-use platform for developing, testing, and deploying applications without worrying about the underlying infrastructure.
+- You focus on your application code and data.
 - The platform provides the infra and manages it to run the application
+- example: elastic beanstalk, Google App Engine, Azure App Service
 
 **Software as a Service (SaaS)**
 
-- Completed product that is run and managed by the service provider
-- Made to final users such as office 365
+- SaaS delivers ready-to-use applications over the internet.
+- Users don’t manage infrastructure, OS, runtime, or apps — the provider handles everything.
+- Accessible via web browsers or apps on any device.
+- Examples: Gmail, Office 365, Salesforce, Zoom.
 
 ## Six Advantages of Cloud Computing
 
