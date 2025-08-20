@@ -1,8 +1,8 @@
 ## IAM: Users vs Roles
 
 ##  Definition
-IAM users represent people/services in your AWS account.
-IAM roles are temporary credentials assigned to AWS services or external users.
+- IAM users represent people/services in your AWS account.
+- IAM roles are temporary credentials assigned to AWS services or external users.
 
 ## Use Case
 - Users: Permanent access for developers/admins
