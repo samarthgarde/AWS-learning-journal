@@ -1,3 +1,6 @@
+# What is IAM?
+IAM is an AWS security service that controls who can access AWS resources and what they can do.
+
 ## IAM: Users vs Roles vs Groups vs Policy
 
 ##  Definition
