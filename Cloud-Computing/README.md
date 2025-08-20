@@ -56,6 +56,8 @@
 
 ## Types of Services on Cloud Computing
 
+![Image](service-model.png)
+
 **Infrastructure as a Service (IaaS)**
 
 - Provide building tools for cloud IT accessible from network
