@@ -4,14 +4,14 @@
 
 + Go to S3 → Create bucket
 + Bucket name: your-unique-portfolio-name
-+ Uncheck ✅ “Block all public access”
++ Uncheck ☐ “Block all public access”
 + Click Create bucket
 
 ![Screenshot](./images/oop_beta.png)
 
 ## 2.Upload the  object like image/pdf/ppt
 
-then upoad the index.html file
++ Then upoad the index.html file
 [Open index.html](./index.html)
 
 ## 3.Go to S3 → Your Bucket → Properties
@@ -19,13 +19,22 @@ then upoad the index.html file
 + Scroll to Static Website Hosting
 + Enable it, and set:
 + Index document: index.html
-(Optional) Error document: error.html
++ Error document: error.html (Optional)
 + Save
 
 ![Screenshot](./images/jddk_5.png)
 
+## 4. Edit Policy (policy Generator)
+- Type of policy - s3 bucket policy
+- effect- allow
+- principle-*
+- action-get object
+- ARN-arn:aws:s3:::my-portfolio-host-487527603894
+- Add statement
+- Generate policy
+- Copy the policy to bucket policy and say save changes
 
-## 4.Going to the object ownership permission
+## 5.Going to the object ownership permission
 
 + enable ACL
 + Object ownership
@@ -33,7 +42,7 @@ then upoad the index.html file
 
 ![Scrrenshot](./images/omg_ok.png)
 
-## 5.Going to the object of our input index.html file 
+## 6.Going to the object of our input index.html file 
 
 + then go to the ACL and check the right permissionon everyone public accesss and check "I undestand"
 + saved it
