@@ -7,12 +7,12 @@ Amazon S3 Console is a global console, that means that we can see all buckets in
 - [S3 Buckets](#s3-buckets)
 - [S3 Objects](#s3-objects)
 - [S3 Create a Bucket and Add Objects](#s3-create-a-bucket-and-add-objects)
-- [S3 Security](#s3-security)
-  - [S3 Bucket Policy](#s3-bucket-policy)
+- [S3 Security](#s3-security) - [S3 Bucket Policy](#s3-bucket-policy)
 - [S3 Static Website](#s3-static-website)
 - [S3 Versioning](#s3-versioning)
 - [S3 Server Access Logging](#s3-server-access-logging)
-- [S3 Storage Classes](#s3-storage-classes)
+- [S3 Replication](#s3-Replication)
+- [S3 S3 Storage Classes](#s3-storage-classes)
 - [S3 Storage Gateway](#s3-storage-gateway)
 - [S3 Shared Responsibility Model](#s3-shared-responsibility-model)
 - [Summary](#summary)
@@ -145,7 +145,8 @@ We have two types of data replication: Cross-Region-Replication (CRR) and Same-R
 **Cross-Region-Replication (CRR) use cases:** Compliance, lower latency access, replication cross-account.
 
 **Same-Region-Replication (SRR) use cases:** log aggregation, live replication between test and prod environments.
-![replication](images/s3-replication.jpg
+
+![replication](images/s3-replication.jpg)
 
 ## S3 Storage Classes
 
@@ -223,6 +224,8 @@ The S3 storage classes are:
 **Amazon S3 Reduced Redundancy Storage**: (deprecated - omitted)
 
 In AWS we can create the lifecycle rules, and can se the transition Rules
+
+![Table](images/Table.jpg)
 
 ## S3 Glacier Vault Lock and Object Lock
 
