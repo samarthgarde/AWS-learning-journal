@@ -124,10 +124,28 @@ Advantages by activating the versioning feature:
 
 - Protection to file deletion (intended or unintended).
 - Restore versions of the file.
+- Easy rollback to previous versions.
+
+Important to understand about versioning:
+
+- By default, versioning is not enabled, but we can enable whenever we want.
+- File only start to get versions when we enable this feature to the bucket.
 
 ## S3 Server Access Logging
 
 It is for audit purposes, enables log access to S3Bucket. Any access (allowed, denied) will be logged into another S3 bucket.
+
+## S3 Replication
+
+We have two types of data replication: Cross-Region-Replication (CRR) and Same-Region-Replication (SRR).
+
+- Replicate all the content continuously to another bucket, it happens asynchronously.
+- For this we must enable versioning in Source and Destination Bucket.
+
+**Cross-Region-Replication (CRR) use cases:** Compliance, lower latency access, replication cross-account.
+
+**Same-Region-Replication (SRR) use cases:** log aggregation, live replication between test and prod environments.
+![replication](images/s3-replication.jpg
 
 ## S3 Storage Classes
 
