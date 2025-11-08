@@ -13,8 +13,8 @@ AWS RDS is a managed relational database service that simplifies the process of 
 - **Microsoft SQL Server:** A comprehensive enterprise-level database solution from Microsoft.
 - **Amazon Aurora:** It provides built-in security, continuous backups, serverless compute, up to 15 read replicas, automated multi-Region replication, and integrations with other AWS services
 
-![first image](images/Scrrenshot1.png)
-![sec images](images/Screenshot2.png)
+![first image](images/Screenshot1.png)
+![sec image](images/Screenshot2.png)
 ![thired image](images/Screenshot3.png)
 
 # Amazon DynamoDB:
